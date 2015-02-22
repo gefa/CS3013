@@ -21,11 +21,21 @@ struct page_table
 	int history;		// count variable for LRU replacement algorithm
 };
 
+int ram[25];
+int ssd[100];
+int hard_disk[1000];
+
+typedef signed short vAddr;
+
+vAddr allocateNewInt();
+int * accessIntPtr(vAddr address);
+void unlockMemory(vAddr address);
+void freeMemory(vAddr address);
+
 /* To do list:
  * implement LRU and WSClock paging replacement alg.
- * 
- *
- *
+ * test with several users (test locks and protection)
+ * why does free have to delete pages rather than just deallocating
  *
  *
  *
