@@ -17,20 +17,23 @@ typedef signed short vAddr;
 
 struct page_table
 {
-	vAddr data;		// data is only single interger
-	int page_number;	// page frame number, 0 to 1000
+	int data;		// data is only single interger
+	vAddr page_number;	// page frame number (vAddr address), 0 to 1000
 	int valid;		// valid bit, make sure valid bits are zero at start 
 	int modified;
 	int referenced;
 	int lock;		// lock for current user
 	int history;		// count variable for LRU replacement algorithm
 	int memory;		// where is the page, ram ssd or hd
+
 }page_table_entry[HD_SIZE];
 
 struct ram_table
 {
-	int valid[RAM_SIZE];	// is page allocated?
-	int ram[RAM_SIZE];	// this holds index to page_table_entry
+	//int valid[RAM_SIZE];	// is page allocated?
+	//int index_page_table[RAM_SIZE];	// this holds index to page_table_entry
+
+	struct page_table * page_ram[25];
 	int count;		//how many valid pages
 };
 
@@ -53,15 +56,39 @@ vAddr allocateNewInt()
 {
 	int i=0;
 	
-
 	// try to put in RAM
 	// find first available page slot
-	for(i=0;RAM.valid==0 && i!=RAM_SIZE;++i);
+	for(i=0;RAM->page_ram.valid[i]==0 && i!=RAM_SIZE;++i);
 
 	if(i!=RAM_SIZE)
-		RAM.valid = 1;	//allocate this one
+	{
+		RAM->page_ram.valid[i] = 1;	//allocate this one
+		return 1;
+	}	
 	else	//else RAM full => page fault => eviction algorithm 
+	{		
 		pageFaultHandler();
+		return -1;
+	}
+}
+
+int * accessIntPtr(vAddr address)
+{
+	int i=0;
+	// linear search for page in RAM
+	for(i=0;RAM->page_ram.page_number[i]!=address && i!= RAM_SIZE;++i);
+	
+	if(i!=RAM_SIZE)
+	{
+		return &(RAM->page_ram.data[i]);	//allocate this one
+	}	
+	else	//else RAM full => page fault => eviction algorithm 
+	{		
+		// todo		
+		pageFaultHandler();
+		
+	}
+
 }
 
 /* To do list:
