@@ -18,7 +18,7 @@ typedef signed short vAddr;
 struct page_table
 {
 	int data;		// data is only single interger
-	vAddr page_number;	// page frame number (vAddr address), 0 to 1000
+	vAddr page_number;	// page frame number (vAddr address), 1 to 1000
 	int valid;		// valid bit, make sure valid bits are zero at start 
 	int modified;
 	int referenced;
@@ -27,6 +27,8 @@ struct page_table
 	int memory;		// where is the page, ram ssd or hd
 
 }page_table_entry[HD_SIZE];
+
+int page = 0;
 
 struct ram_table
 {
@@ -58,7 +60,14 @@ vAddr allocateNewInt()
 	
 	// try to put in RAM
 	// find first available page slot
-	for(i=0;RAM->page_ram.valid[i]==0 && i!=RAM_SIZE;++i);
+	for(i=0;RAM->page_ram.valid[i]==0 && i!=RAM_SIZE;++i)
+	  {
+	    // if on start there are no pointers assigned
+	    if(RAM->page_ram[i]==NULL)
+	      {
+		allocated += 
+	      }
+	  }
 
 	if(i!=RAM_SIZE)
 	{
@@ -84,7 +93,7 @@ int * accessIntPtr(vAddr address)
 	}	
 	else	//else RAM full => page fault => eviction algorithm 
 	{		
-		// todo		
+		// to
 		pageFaultHandler();
 		
 	}
@@ -103,7 +112,14 @@ int * accessIntPtr(vAddr address)
 /* MAIN */
 
 int main(int argc, char **argv) {
-
+  
+  int i=0;
+  for(i=0;i<HD_SIZE;++i)
+    {
+      page_table_entry[i].data = -1;
+      page_table_entry[i].page_number = -1;
+      //everything -1
+    }
 	
   return EXIT_SUCCESS;
 }
