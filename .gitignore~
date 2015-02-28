@@ -1,5 +1,7 @@
 #ignore backups
 FW__/*
+*.[oa]
+*~
 *.c
 !project4.c
 
