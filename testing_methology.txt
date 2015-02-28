@@ -1,0 +1,28 @@
+Jillian, Stefan and Myles
+
+Testing Methology (testing the science of methamphetamines):
+
+Memory Maxer:
+	Memory maxer should use the allocating function to allocate 1000 pages. 
+	It will then access each of the pages with accessIntptr, print them, and finally unlock each page when it is no longer trying to access it.
+
+	Output: run program for output. too long for text file. will show all 1000 pages allocated
+
+memoryMaxFree:
+	this function does the same thing as Memory Maxer with the addition of freeing all the pages once it has finished.
+	After freeing all pages the memory max free attempts to access page indexes[20], no pages exist anymore and should print that it does not exist.
+
+	Output: same as memoryMaxer, but then frees memory and prints page doesnt exist when trying to find page
+	-->
+
+accessPages: 
+	Access Pages will access 10 pages that exist in the page table. Some of these pages will be in ram, some in ssd, and some in hard disk.
+	it will run the page fault handler if necessary to put pages into ram and access them for the user.
+
+	Output: run program
+
+tooMany:
+	Too many tries to allocate 1001 pages, this will print an error message at the attempt of making page 1001 that there is no more space for pages
+
+	Output: allocating too many returns and error
+	-->

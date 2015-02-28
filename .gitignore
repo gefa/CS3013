@@ -1,0 +1,4 @@
+#ignore backups
+FW__/*
+*.c
+!project4.c
