@@ -1,0 +1,53 @@
+[33mcommit 3b5bf10ead9b85ff4bd820602d81ceb2570662e9[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Sat Feb 28 13:30:07 2015 -0500
+
+    final
+
+[33mcommit bbf075f2c9b55c47f286c40ff02cbae7d99d1594[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Thu Feb 26 17:25:41 2015 -0500
+
+    new find empty function
+
+[33mcommit d12b6fc1a9bc3884996fa6eaed749bdef7a3f29e[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Wed Feb 25 15:39:01 2015 -0500
+
+    fixed 4 user functions
+
+[33mcommit 9fb4c0f2c6bd7dcb28d60c94e350c4f9c29268fb[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Tue Feb 24 23:08:54 2015 -0500
+
+    user functions done, no fault handler yet
+
+[33mcommit f3a6617e37e34f056733b0b847cd941cccc8d144[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Mon Feb 23 10:45:03 2015 -0500
+
+    modified ram struct
+
+[33mcommit 2cf9dcf299eb80b279dc97a2eef4dd6568b23c92[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Sun Feb 22 17:48:58 2015 -0500
+
+    added accessIntPtr
+
+[33mcommit c28af0ef1780419ff048a4acf0e06b407b09f07c[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Sun Feb 22 17:16:24 2015 -0500
+
+    working on allocateInt function
+
+[33mcommit 2892723f4269ddf632ea024ad2e8b07e28ffa6f3[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Sun Feb 22 16:25:11 2015 -0500
+
+    function prototypes
+
+[33mcommit 62b89304f3c4583da1727dc37f1baae9212e719c[m
+Author: gefa <sgvozdenovic@wpi.edu>
+Date:   Sat Feb 21 23:49:32 2015 -0500
+
+    initial thoughts
